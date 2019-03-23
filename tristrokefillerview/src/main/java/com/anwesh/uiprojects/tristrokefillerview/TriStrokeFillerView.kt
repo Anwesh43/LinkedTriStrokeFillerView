@@ -193,4 +193,26 @@ class TriStrokeFillerView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : TriStrokeFillerView) {
+
+        private val animator : Animator = Animator(view)
+        private val tsf : TriStrokeFiller = TriStrokeFiller(0)
+
+        fun render(canvas : Canvas, paint : Paint) {
+            canvas.drawColor(backColor)
+            tsf.draw(canvas, paint)
+            animator.animate {
+                tsf.update {i, scl ->
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            tsf.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
