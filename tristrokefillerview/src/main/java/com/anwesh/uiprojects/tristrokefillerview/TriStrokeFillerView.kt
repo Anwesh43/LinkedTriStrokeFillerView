@@ -222,7 +222,7 @@ class TriStrokeFillerView(ctx : Context) : View(ctx) {
         fun create(activity : Activity) : TriStrokeFillerView {
             val view : TriStrokeFillerView = TriStrokeFillerView(activity)
             activity.setContentView(view)
-            return view 
+            return view
         }
     }
 }
