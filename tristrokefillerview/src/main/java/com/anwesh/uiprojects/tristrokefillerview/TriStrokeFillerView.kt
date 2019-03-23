@@ -216,4 +216,13 @@ class TriStrokeFillerView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : TriStrokeFillerView {
+            val view : TriStrokeFillerView = TriStrokeFillerView(activity)
+            activity.setContentView(view)
+            return view 
+        }
+    }
 }
